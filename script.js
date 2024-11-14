@@ -20,7 +20,7 @@ Return only html and do not use any markdown code!
     Here is the article:
     \n\n${articleContent}`;
     const response = await openai.chat.completions.create({
-        model: 'gpt-4o',
+        model: 'gpt-4',
         messages: [
             {
                 role: 'user',
@@ -29,7 +29,7 @@ Return only html and do not use any markdown code!
         ],
         max_tokens: 2048,
         n: 1,
-        temperature: 0.7,
+        temperature: 0.5,
     });
     return response.choices[0].message.content.trim();
 }
