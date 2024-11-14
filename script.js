@@ -34,14 +34,21 @@ Return only html and do not use any markdown code!
     return response.choices[0].message.content.trim();
 }
 
-async function saveHtml(htmlContent, outputPath) {
+async function saveOutput(htmlContent, outputPath) {
     await fs.promises.writeFile(outputPath, htmlContent, 'utf-8');
+}
+
+async function savePreview(htmlContent, outputPath) {
+    let template = await fs.promises.readFile("szablon.html", {encoding: 'utf-8'});
+    const modifiedTemplate = template.replace('<body>', `<body>${htmlContent}`);
+    await fs.promises.writeFile(outputPath, modifiedTemplate, 'utf-8');
 }
 
 async function main() {
     const articleContent = await readArticle();
     const htmlContent = await generateHtml(articleContent);
-    await saveHtml(htmlContent, 'artykul.html');
+    await saveOutput(htmlContent, 'artykul.html');
+    await savePreview(htmlContent, 'podglad.html');
     console.log("done");
 }
 
