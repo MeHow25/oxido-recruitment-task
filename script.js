@@ -10,21 +10,41 @@ async function readArticle() {
 }
 
 async function generateHtml(articleContent) {
-    const prompt = `
-    Generate code for the article below. The code should adhere to the following guidelines:
-Use appropriate HTML tags to structure the content.
-Identify places where images would be beneficial, marking them with the <img> tag and the attribute src="image_placeholder.jpg". Include an alt attribute for each image with a detailed description that can be used to generate the graphic.
-Place captions under the images using the appropriate HTML tag.
-Do not include any CSS or JavaScript code. The returned code should contain only the content to be placed between the <body> and </body> tags. Do not include <html>, <head>, or <body> tags.
-Return only html and do not use any markdown code!
-    Here is the article:
-    \n\n${articleContent}`;
+    const prompt = 
+`You are an HTML generator specialized in converting articles into structured HTML content.
+
+Your output must strictly follow these specifications:
+
+1. Use semantic HTML tags (<article>, <section>, <h1>, <p>, etc.) to structure the content appropriately
+
+2. Visual content requirements:
+   - Strategically place <img> elements where visuals would enhance reader engagement and comprehension
+   - Configure each <img> with:
+     * src="image_placeholder.jpg"
+     * alt attribute containing precise image generation instructions
+
+3. Caption specifications:
+   - Accompany each <img> with a <figcaption>
+   - Provide contextual descriptions in <figcaption> matching the article's language
+   - Encapsulate image-caption pairs in <figure> elements
+
+4. Technical constraints:
+   - Generate only the content meant for <body> tags
+   - Exclude <html>, <head>, and <body> tags
+   - Omit CSS and JavaScript
+   - Use pure HTML (no markdown)
+
+Process the provided article according to these specifications.`;
     const response = await openai.chat.completions.create({
-        model: 'gpt-4',
+        model: 'gpt-4o-2024-08-06',
         messages: [
             {
-                role: 'user',
+                role: 'system',
                 content: prompt
+            },
+            {
+                role: 'user',
+                content: articleContent
             }
         ],
         max_tokens: 2048,
