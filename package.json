@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "script.js",
+  "engines": {
+    "node": "^18.18.0"
+  },
   "scripts": {
     "start": "node --env-file=.env script.js"
   },
