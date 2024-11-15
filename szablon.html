@@ -6,55 +6,109 @@
     <title>Podgląd</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
-            max-width: 800px;
+            max-width: 720px;
             margin: 0 auto;
-            padding: 20px;
-            color: #333;
+            padding: 64px 24px;
+            color: #94a3b8;
+            background: #0f172a;
+            min-height: 100vh;
         }
-
-        article {
-            background-color: #fff;
-            padding: 2rem;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
+  
         h1 {
-            color: #2c3e50;
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+            color: #f8fafc;
+            font-size: 3.2rem;
+            margin-bottom: 3rem;
+            font-weight: 700;
+            line-height: 1.1;
+            background: linear-gradient(to right, #f8fafc, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-
+  
         h2 {
-            color: #34495e;
-            font-size: 1.8rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
+            color: #f8fafc;
+            font-size: 1.75rem;
+            margin-top: 4.5rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
         }
-
+  
         p {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.75rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #cbd5e1;
         }
-
+  
         img {
-            max-width: 100%;
+            width: 100%;
             height: auto;
-            margin: 1.5rem 0;
-            border-radius: 8px;
+            margin: 2.5rem 0;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
+  
+        img:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+  
         figcaption {
             text-align: center;
-            color: #666;
-            font-style: italic;
-            margin-bottom: 1.5rem;
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-top: -1.5rem;
+            margin-bottom: 2.5rem;
         }
-
-        em {
-            color: #666;
+  
+        ::selection {
+            background: rgba(226, 232, 240, 0.1);
+            color: #f8fafc;
+        }
+  
+        section {
+            position: relative;
+            padding: 1rem 0;
+        }
+  
+        section::before {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(148, 163, 184, 0.1), transparent);
+        }
+  
+        article > p:last-child {
+            margin-top: 4rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            font-size: 0.95rem;
+            color: #94a3b8;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+  
+        article > p:last-child:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-1px);
+            transition: all 0.2s ease;
+        }
+  
+        article > p:last-child em {
+            font-style: normal;
+            color: inherit;
         }
     </style>
-</head>
+  </head>
 <body></body>
 </html>

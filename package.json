@@ -7,7 +7,7 @@
     "node": "^18.18.0"
   },
   "scripts": {
-    "start": "node --env-file=.env script.js"
+    "start": "node --no-warnings --env-file=.env script.js"
   },
   "author": "",
   "license": "ISC",
